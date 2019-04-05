@@ -2,7 +2,7 @@
 <job>
   <name>maintablesaux</name>
     <description/>
-    <extended_description>Aux Tables MDIC</extended_description>
+    <extended_description>MDIC Aux Tables</extended_description>
     <job_version/>
     <job_status>0</job_status>
   <directory>&#x2f;</directory>
@@ -75,8 +75,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>62</xloc>
-      <yloc>83</yloc>
+      <xloc>74</xloc>
+      <yloc>275</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -86,8 +86,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>485</xloc>
-      <yloc>313</yloc>
+      <xloc>497</xloc>
+      <yloc>505</yloc>
       </entry>
     <entry>
       <name>Check Db connections</name>
@@ -98,8 +98,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>84</yloc>
+      <xloc>220</xloc>
+      <yloc>276</yloc>
       </entry>
     <entry>
       <name>Check Tables</name>
@@ -107,7 +107,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;checktables.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;checkauxtables.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -130,8 +130,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>331</xloc>
-      <yloc>84</yloc>
+      <xloc>346</xloc>
+      <yloc>276</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -140,123 +140,40 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>487</xloc>
-      <yloc>424</yloc>
+      <xloc>784</xloc>
+      <yloc>280</yloc>
       </entry>
     <entry>
-      <name>Unzip Dados</name>
+      <name>Parallel</name>
       <description/>
-      <type>UNZIP</type>
-      <zipfilename>&#x2f;home&#x2f;ds&#x2f;data&#x2f;export&#x2f;EXP_COMPLETA.zip</zipfilename>
-      <wildcard/>
-      <wildcardexclude/>
-      <targetdirectory>&#x2f;home&#x2f;ds&#x2f;data&#x2f;export</targetdirectory>
-      <movetodirectory/>
-      <afterunzip>0</afterunzip>
-      <addfiletoresult>N</addfiletoresult>
-      <isfromprevious>N</isfromprevious>
-      <adddate>N</adddate>
-      <addtime>N</addtime>
-      <addOriginalTimestamp>N</addOriginalTimestamp>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <rootzip>N</rootzip>
-      <createfolder>N</createfolder>
-      <nr_limit>10</nr_limit>
-      <wildcardSource/>
-      <success_condition>success_if_no_errors</success_condition>
-      <iffileexists>OVERWRITE_DIFF_SIZE</iffileexists>
-      <create_move_to_directory>N</create_move_to_directory>
-      <setOriginalModificationDate>N</setOriginalModificationDate>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>750</xloc>
-      <yloc>82</yloc>
-      </entry>
-    <entry>
-      <name>Delete Dados</name>
-      <description/>
-      <type>DELETE_FILES</type>
-      <arg_from_previous>N</arg_from_previous>
-      <include_subfolders>Y</include_subfolders>
-      <fields>
-        <field>
-          <name>&#x2f;home&#x2f;ds&#x2f;data&#x2f;aux</name>
-          <filemask/>
-        </field>
-        <field>
-          <name>&#x2f;home&#x2f;ds&#x2f;data&#x2f;export</name>
-          <filemask/>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>443</xloc>
-      <yloc>83</yloc>
-      </entry>
-    <entry>
-      <name>Delete Table Export</name>
-      <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;deletetable.ktr</filename>
-      <transname/>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;jobparallelaux.kjb</filename>
+      <jobname/>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>Y</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>REGISTROS_REMOVIDOS</name>
-            <stream_name>registros_removidos</stream_name>
-            <value/>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>888</xloc>
-      <yloc>82</yloc>
-      </entry>
-    <entry>
-      <name>Download ZIP Export 1998-2018</name>
-      <description/>
-      <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;www.mdic.gov.br&#x2f;balanca&#x2f;bd&#x2f;comexstat-bd&#x2f;ncm&#x2f;EXP_COMPLETA.zip</url>
-      <targetfilename>&#x2f;home&#x2f;ds&#x2f;data&#x2f;export&#x2f;EXP_COMPLETA.zip</targetfilename>
-      <file_appended>N</file_appended>
-      <date_time_added>N</date_time_added>
-      <targetfilename_extention/>
-      <uploadfilename/>
-      <url_fieldname/>
-      <run_every_row>N</run_every_row>
-      <username/>
-      <password>Encrypted </password>
-      <proxy_host/>
-      <proxy_port/>
-      <non_proxy_hosts/>
-      <addfilenameresult>Y</addfilenameresult>
-      <headers>
-      </headers>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>594</xloc>
-      <yloc>83</yloc>
+      <xloc>646</xloc>
+      <yloc>280</yloc>
       </entry>
   </entries>
   <hops>
@@ -297,25 +214,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check Tables</from>
-      <to>Delete Dados</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Dados</from>
-      <to>Download ZIP Export 1998-2018</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Dados</from>
+      <from>Parallel</from>
       <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -324,53 +223,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Download ZIP Export 1998-2018</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Download ZIP Export 1998-2018</from>
-      <to>Unzip Dados</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Unzip Dados</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Unzip Dados</from>
-      <to>Delete Table Export</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Table Export</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Table Export</from>
+      <from>Parallel</from>
       <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Tables</from>
+      <to>Parallel</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -380,11 +243,11 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Puxando dados de exporta&#xe7;&#xe3;o do MDIC para banco local PostgreSQL&#xa;SOMENTE de 1997 a 2018&#xa;Para Ano Atual  &#x28;2019&#x29; utilizar job main2019</note>
-      <xloc>22</xloc>
-      <yloc>3</yloc>
-      <width>415</width>
-      <heigth>55</heigth>
+      <note>Tabela Auxiliar &#x28;MDIC&#x29; e Cotacao</note>
+      <xloc>28</xloc>
+      <yloc>17</yloc>
+      <width>202</width>
+      <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
