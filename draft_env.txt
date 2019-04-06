@@ -21,6 +21,7 @@ Ambiente do Curso
 
 https://github.com/datasciencealdeia/201903.git
 
+
 Ambiente do Curso
 
 1a Opção - Utilizar máquina virtual
