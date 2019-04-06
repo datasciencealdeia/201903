@@ -235,7 +235,6 @@ print(qt_vs_dolar)
 summary(qt_vs_dolar)
 
 
-
 ## Estão faltando variáveis para explicar esta relação, vamos em frente
 
 ## Relação entre pais importador e quantidade exportada
@@ -285,14 +284,18 @@ print(qt_vs_valor_e_dolar)
 
 summary(qt_vs_valor_e_dolar)
 
+
 # Conseguimos cruzar todas as variáveis e validar todas de uma única vez
 ## Basta separar todas as variáveis numéricas numa única tabela
 
+
 tab_cor <- data.frame(Quantidade=export_graos$QT_ESTAT,Valor=export_graos$VL_FOB, Dolar=export_graos$Fechamento, Toneladas=export_graos$KG_LIQUIDO)
+
 
 ## E fazer a análise de correlação
 
 corrplot.mixed(cor(tab_cor), number.cex = 1.5, upper = 'ellipse')
+
 
 ## Aqui verifica-se que existe relação direta entre toneladas comercializadas e o valor do dolar
 
@@ -302,6 +305,7 @@ print(ton_vs_dolar)
 
 summary(ton_vs_dolar)
 
-## Mas uma variável não é suficiente para explicar a outra
-# Conclusão: Existem outras variáveis exógenas que necessitam ser encontradas para melhorar o ajuste
 
+## Neste caso uma variável não é suficiente para explicar a outra
+
+# Conclusão: Existem outras variáveis exógenas que necessitam ser encontradas para melhorar o ajuste
