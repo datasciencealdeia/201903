@@ -1,0 +1,82 @@
+Ambiente do Curso
+
+1a Opção - Utilizar máquina virtual
+	1) Baixar o Virtual Box (versão 6.0.4) > https://www.virtualbox.org/wiki/Downloads
+	2) Baixar a máquina virtual do curso (DataScience.ova) > https://drive.google.com/open?id=1bUx2zId2nGNLFj0pLxdMb5aZ-tPzNL_R
+	3) Executar o Vritual Box > Opção Arquivo > Importar Appliance > Escolher o arquivo baixado anteriormente para importar (DataScience.ova) > Em Mac Address Policy escolher Generate new MAC... > Importar
+	4) Clicar sobre a máquina virtual e escolher opção Iniciar
+	5) user: ds
+	6) passwd: ds2019Xpto
+
+2a Opção - Baixar aplicativos que serão utilizados e instalar local
+	1) Java >
+	2) Pentaho (Win 64)  >
+	3) R > 
+	4) R Studio >
+	5) Python
+	6) Anaconda
+	7) Sublime
+	8) SourceTree
+	9) PostgreSQL
+
+https://github.com/datasciencealdeia/201903.git
+
+Ambiente do Curso
+
+1a Opção - Utilizar máquina virtual
+	1) Baixar o Virtual Box (versão 6.0.4) > https://www.virtualbox.org/wiki/Downloads
+	2) Baixar a máquina virtual do curso (DataScience.ova) > https://drive.google.com/open?id=1bUx2zId2nGNLFj0pLxdMb5aZ-tPzNL_R
+	3) Executar o Vritual Box > Opção Arquivo > Importar Appliance > Escolher o arquivo baixado anteriormente para importar (DataScience.ova) > Em Mac Address Policy escolher Generate new MAC... > Importar
+	4) Clicar sobre a máquina virtual e escolher opção Iniciar
+	5) user: ds
+	6) passwd: ds2019Xpto
+
+2a Opção - Baixar aplicativos que serão utilizados e instalar local
+	1) Java > 
+	2) Pentaho (Win 64)  > 
+	3) R > 
+	4) R Studio >
+	5) Python
+	6) Anaconda
+	7) Sublime
+	8) SourceTree
+	9) PostgreSQL
+
+https://github.com/datasciencealdeia/201903.git
+
+https://drive.google.com/open?id=1U5iJ3_CuPauRnqwCNLwx6GPxO2gmlszZ
+https://drive.google.com/drive/folders/1U5iJ3_CuPauRnqwCNLwx6GPxO2gmlszZ?usp=sharing
+
+
+
+VM
+Data Science Kit - Curso Aldeia Coworking Março 2019
+
+Sistema Operacional
+   Ubuntu 16.0.4 LTS
+   user: ds
+   passwd: ds2019Xpto
+
+ETL
+   Pentaho Data Integration (PDI) 5.0.1
+
+Database
+   PostgreSQL 10.7.1
+   database: datascience
+   user: postgres
+   passwd: ds2019
+
+Programming Languages/Packages/Framework
+   Python 2.7.12
+   Python 3.5.2
+   Python 3.7.3
+   Anaconda 7.3.0
+   R 3.4.4
+   RStudio 1.1.463
+
+JRE
+  Java 1.8.0_201
+
+
+
+
