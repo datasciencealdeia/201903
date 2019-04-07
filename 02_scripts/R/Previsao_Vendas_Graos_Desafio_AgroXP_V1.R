@@ -3,18 +3,18 @@ gc(reset=TRUE)
 setwd("C:\\Users\\rafael.dias\\Documents\\Cursos e Palestras") 
 
 # Instalação dos pacotes necessários para estudar a qualidade dos dados
-
-install.packages("RMySQL")
-install.packages("dplyr")
-install.packages("data.table")
-install.packages("lattice")
-install.packages("Matrix")
-install.packages("readxl")
-install.packages("stringr")
-install.packages("forecast")
-install.packages("forecastHybrid")
-install.packages("corrplot")
-
+# 
+# install.packages("RMySQL")
+# install.packages("dplyr")
+# install.packages("data.table")
+# install.packages("lattice")
+# install.packages("Matrix")
+# install.packages("readxl")
+# install.packages("stringr")
+# install.packages("forecast")
+# install.packages("forecastHybrid")
+# install.packages("corrplot")
+#
 
 # Carregando os pacotes
 
