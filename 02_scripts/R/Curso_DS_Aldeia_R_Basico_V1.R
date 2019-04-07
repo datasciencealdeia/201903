@@ -30,7 +30,7 @@ class(numerico)
 
  # ou
 
-is.numeric(numeric)
+is.numeric(numerico)
 
 ## Data
 
