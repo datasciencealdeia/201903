@@ -257,6 +257,7 @@ m_e_cafe
 m_e_milho
 
 
+
 ## Agora vamos verificar quais variáveis são mais relevantes para continuarmos com o estudo:
 
 # Correlação entre quantidade de exportação e variação do dólar
@@ -285,9 +286,12 @@ summary(qt_vs_dolar)
 
 cor.test(export_graos$QT_ESTAT,export_graos$CO_PAIS)
 
+
+
 ## Verifica-se uma correlação direta entre estas variáveis
 
-corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Pais=export_graos$CO_PAIS)), number.cex = 1.5, upper = 'ellipse')
+corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Pais=export_graos$CO_PAIS)), 
+               number.cex = 1.5, upper = 'ellipse')
 
 ## Como uma variável explica a quantidade importada?
 
@@ -308,7 +312,8 @@ summary(qt_vs_dolar)
 cor.test(export_graos$QT_ESTAT,export_graos$VL_FOB)
 
 
-corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Valor=export_graos$VL_FOB)), number.cex = 1.5, upper = 'ellipse')
+corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Valor=export_graos$VL_FOB)), 
+               number.cex = 1.5, upper = 'ellipse')
 
 
 qt_vs_valor <- lm(export_graos$QT_ESTAT~export_graos$VL_FOB)
@@ -324,7 +329,8 @@ summary(qt_vs_dolar)
 # E se verificarmos Valor e dolar juntos com quantidade?
 
 
-corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Valor=export_graos$VL_FOB, Dolar=export_graos$Fechamento)), number.cex = 1.5, upper = 'ellipse')
+corrplot.mixed(cor(data.frame(Quantidade=export_graos$QT_ESTAT,Valor=export_graos$VL_FOB, 
+                              Dolar=export_graos$Fechamento)), number.cex = 1.5, upper = 'ellipse')
 
 
 qt_vs_valor_e_dolar <- lm(export_graos$QT_ESTAT~export_graos$VL_FOB+export_graos$Fechamento)
@@ -364,8 +370,6 @@ summary(ton_vs_dolar)
 
 
 
-
-
-## Neste caso uma variável não é suficiente para explicar a outra
+## Neste caso não existem variáveis neste conjunto, seria necessário separar por grãos e fazer a mesma validação
 
 # Conclusão: Existem outras variáveis que necessitam ser encontradas e anexadas para explicar as vendas de grãos
