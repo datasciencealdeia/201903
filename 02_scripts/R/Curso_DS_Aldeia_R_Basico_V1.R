@@ -14,13 +14,15 @@ require(dplyr)
 
 ## Caracter
 
-caracter <- ("Exemplo Caracter")
+caracter <-  ("Exemplo Caracter")
 
 class(caracter)
 
  # ou
 
 is.character(caracter)
+
+caracter
 
 ## Numérico
 
@@ -30,7 +32,7 @@ class(numerico)
 
  # ou
 
-is.numeric(numeric)
+is.numeric(numerico)
 
 ## Data
 
@@ -94,7 +96,9 @@ log(vinte)
 
  # ou
 
-mean(c(dois,dez,vinte))
+media <- mean(c(dois,dez,vinte))
+
+media
 
 # Criando um vetor
 
@@ -137,6 +141,8 @@ mean(y)
 
 var(y)                
 
+var(x)
+
 # O desvio padrão
 
 sqrt(var(y))
@@ -148,6 +154,10 @@ sd(y)
 # Produto entre vetores
 
 x*y
+
+length(x)
+
+length(y)
 
 # Criando matrizes com vetores
 
@@ -166,7 +176,6 @@ w <- rbind(x,y)
 w
 
 class(w)
-
 
 ## Operações com Matrizes
 
@@ -198,7 +207,7 @@ b <- c(2,4,8,16,32,64)
 
 d_f_1 <- data.frame(impares=a,potencia_2=b, row.names = NULL)
 
-View(d_f)
+View(d_f_1)
 
 d_f_2 <- data.frame(a=x,b=y,row.names = NULL)
 
@@ -212,6 +221,10 @@ d_f_1 * d_f_2
 lista <- list(z,d_f_1,"Locura")
 
 lista
+
+z[1,1]
+
+lista[[1]][1,1]
 
 # Criando Gráficos
 
@@ -311,6 +324,9 @@ plot(riqueza~area)
 boxplot(riqueza~area.cate)
 
 dev.off()
+
+#--------------------------------#
+#     Paramos aqui em 06/04      #
 
 # ETL Básico em R
 
