@@ -5,6 +5,7 @@ import pylab
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_svmlight_file, make_classification
+import os
 
 i = 0
 
@@ -135,6 +136,7 @@ def main(data):
       epoch += 1
       plot_line(X,y,weights,epoch, 0.05)
     i += 1
+  input('') 
   print('\nResults:')
   print('  Epochs:', epoch)
   print('  Weights = ({0:.2f},{1:.2f}) | bias = {2:.2f}'.format(weights[1],weights[2],weights[0]))
