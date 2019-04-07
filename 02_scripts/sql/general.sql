@@ -1,9 +1,19 @@
 --meu primeiro SQL (DQL)
-SELECT 'Hello World'
+SELECT 'Hello World';
 
 --meu primeiro SQL util
 SELECT * FROM ds_exportacoes;
 SELECT * FROM ds_ncm;
+SELECT count(*) FROM ds_ncm;
+
+--Procurar o código de... Aveia
+SELECT * FROM ds_ncm WHERE no_ncm_por='Aveia';
+SELECT * FROM ds_ncm WHERE no_ncm_por like '%Aveia%';
+
+SELECT UPPER('Aveia');
+SELECT LOWER('Aveia');
+
+SELECT * FROM ds_ncm WHERE UPPER(no_ncm_por) like '%AVEIA%';
 
 --contando as tuplas/registros/linhas
 SELECT COUNT(*) FROM ds_exportacoes;
@@ -55,7 +65,7 @@ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '12019000'
+n.co_ncm = '12019000' --Soja
 AND e.co_ano >= '2014'
 AND e.co_ano <= '2018'
 GROUP BY 
@@ -148,7 +158,8 @@ n.co_ncm
 ,n.no_ncm_por
 ,e.co_uf
 --,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
-,CAST(SUM(e.vl_fob) as money)*c.cotacao as total_BRL
+--,CAST(SUM(e.vl_fob) as money)*c.cotacao as total_BRL
+,SUM(e.vl_fob)*c.cotacao as total_BRL
 FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
@@ -220,6 +231,13 @@ n.co_ncm
 ORDER BY
 sum(e.qt_estat) DESC
 LIMIT 3;
+
+--Analisando SP
+SELECT * FROM ds_cotacao WHERE ano_mes between 201401 and 201812 ORDER BY cotacao ASC;
+
+SELECT ano_mes, sum(vl_fob) FROM ds_exportacoes WHERE co_ano between '2014' and '2018' 
+and co_ncm='12019000'
+and co_uf = 'SP' group by ano_mes order by 2 DESC;
 
 --De agora em diante só análise de tonelada e fazer o mesmo estudo para cada um dos commodites
 
@@ -296,7 +314,8 @@ ORDER BY
 sum(e.qt_estat) DESC
 LIMIT 3;
 
---Para evitar exportar cada uma das queries por NCM pq nao uni-las? - UNION - Pegadinha do Malandro
+--Para evitar exportar cada uma das queries por NCM pq nao uni-las? - UNION - Pegadinha do Malandro - TEM ERRO 
+
 SELECT
 n.co_ncm
 ,n.no_ncm_por
@@ -306,7 +325,7 @@ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '12019000'
+n.co_ncm = '12019000' --SOJA
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -325,7 +344,7 @@ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '10059010'
+n.co_ncm = '10059010' --MILHO
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -344,7 +363,7 @@ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '09011110'
+n.co_ncm = '09011110' --CAFE
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -360,11 +379,12 @@ n.co_ncm
 ,n.no_ncm_por
 ,e.co_uf
 ,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
-FROM
+,sum(e.qt_estat)
+ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '12019000'
+n.co_ncm = '12019000' --SOJA
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -379,11 +399,12 @@ n.co_ncm
 ,n.no_ncm_por
 ,e.co_uf
 ,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
-FROM
+,sum(e.qt_estat)
+ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '10059010'
+n.co_ncm = '10059010' --MILHO
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -398,11 +419,12 @@ n.co_ncm
 ,n.no_ncm_por
 ,e.co_uf
 ,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
-FROM
+,sum(e.qt_estat)
+ FROM
 ds_exportacoes as e
 INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
 WHERE
-n.co_ncm = '09011110'
+n.co_ncm = '09011110' --CAFE
 AND e.co_ano between '2014' and '2018'
 GROUP BY 
 n.co_ncm
@@ -411,8 +433,8 @@ n.co_ncm
 ORDER BY
 sum(e.qt_estat) DESC
 LIMIT 3)
-ORDER BY 1 DESC,4 DESC;
-;
+ORDER BY 2, 5 DESC;
+
 
 /* ==============================   Hora de pensar... e pensar... e pensar... ====================== */
 
@@ -530,19 +552,23 @@ ds_exportacoes
 SET
 qt_estat=qt_estat/1000
 WHERE
-co_ncm = '10059010'
-AND;
+co_ncm = '10059010';
 --rollback or commit?
 
+commit;
+
+
 --E indices? Temos? Precisa (DDL)
-CREATE INDEX ON ds_exportacoes (e.co_ncm) and;
+CREATE INDEX ON ds_exportacoes (co_ncm);
+
+--DROP INDEX 
 --rollback ou commit?
 
 --Exercicio valendo um Kit Kat para primeira(o) que terminar
 
 /*
-Seu chefinho quer mais uma analise previa dos dados... ele quer saber quais os 5 PAISES (NOME) que mais compraram SOJA
-, MILHO E CAFE (em toneladas) DO Brasil em 2018
+Seu chefinho quer mais uma analise previa dos dados... ele quer saber quais os 5 PAISES 
+(NOME) que mais compraram SOJA, MILHO E CAFE (em toneladas) DO Brasil em 2018
 
 Ex:
 Cafe... China 1.500.000.000
@@ -556,7 +582,67 @@ Soja... Australia 2.000.000
 
 Go Ahead!
 */
-...
+
+((SELECT
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
+FROM
+ds_exportacoes as e
+INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
+INNER JOIN ds_pais as p ON p.co_pais = e.co_pais
+WHERE
+n.co_ncm = '12019000'
+AND e.co_ano = '2018'
+GROUP BY 
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+ORDER BY
+sum(e.qt_estat) DESC
+LIMIT 5)
+UNION
+(SELECT
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+,TO_CHAR(sum(e.qt_estat)/1000, '9G999G999G999G999') as total_toneladas --LEMBRE DE TIRAR DEPOIS DO UPGRADE
+FROM
+ds_exportacoes as e
+INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
+INNER JOIN ds_pais as p ON p.co_pais = e.co_pais
+WHERE
+n.co_ncm = '10059010'
+AND e.co_ano = '2018'
+GROUP BY 
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+ORDER BY
+sum(e.qt_estat) DESC
+LIMIT 5))
+UNION
+(SELECT
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+,TO_CHAR(sum(e.qt_estat), '9G999G999G999G999') as total_toneladas
+FROM
+ds_exportacoes as e
+INNER JOIN ds_ncm as n ON e.co_ncm = n.co_ncm
+INNER JOIN ds_pais as p ON p.co_pais = e.co_pais
+WHERE
+n.co_ncm = '09011110'
+AND e.co_ano = '2018'
+GROUP BY 
+n.co_ncm
+,n.no_ncm_por
+,p.no_pais
+ORDER BY
+sum(e.qt_estat) DESC
+LIMIT 5)
+ORDER BY 1 ASC,4 DESC;
 
 
 ------- BONUS ---------
