@@ -14,7 +14,7 @@ install.packages("stringr")
 install.packages("forecast")
 install.packages("forecastHybrid")
 install.packages("corrplot")
-
+install.packages("DMwR")
 
 # Carregando os pacotes
 
